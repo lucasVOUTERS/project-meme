@@ -62,13 +62,13 @@ section div{
 }
 
 img{
-	height: 82vh;
+	height: 66vh;
 	width: auto;
 }
 
 #desc{
-	height: 14vh;
-	font-size: 4em;
+	height: 28vh;
+	font-size: 6.5em;
 	font-family: "Chewy", system-ui;
   	font-weight: 500;
 	text-align: center;
@@ -77,6 +77,6 @@ img{
 	justify-content: center;
 	align-items: center;
 	color: white;
-	-webkit-text-stroke-width: 4px;
+	-webkit-text-stroke-width: 5.5px;
  	-webkit-text-stroke-color: black;
 }
