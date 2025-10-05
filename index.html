@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <title>Test</title>
+</head>
+<body>
+    <header>
+    </header>
+
+    <nav></nav>
+    
+    <!-- <section id="video"> 
+        <div class="yt-wrapper">
+            <div class="yt-frame-container">
+                <iframe id="iframe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>-->
+
+    <section id="image">
+        <div id="desc">
+            <div id="descText">
+            </div>
+        </div>
+        <img id="imageMeme" src="https://img-0.journaldunet.com/nds11COnzaqETUTlqHDvQyy3YD0=/1500x/smart/ab68ae85e74c4b2691006c0467f8b7dc/ccmcms-jdn/25881466.jpg" alt="">
+    </section>
+
+    <aside></aside>
+
+    <footer>
+
+    </footer>
+
+    <script type="text/javascript">
+
+        let params = new URLSearchParams(document.location.search);
+        let txt = params.get("txt");
+        document.getElementById("descText").innerHTML = txt;
+
+        let srcImage = params.get("url");
+        document.getElementById("imageMeme").src = srcImage;
+
+        setTimeout(() => {
+            document.getElementById("image").style.display = "none";
+        }, "4000");
+
+
+        var videoId = youtube_parser("https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=YxfGiPPq1ME&list=PLkgZisYIMkOk-IqfgEMctlxSQnMbxizD_&index=2");
+
+        var url = "https://www.youtube.com/embed/"+ videoId +"?&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&mute=0&vq=hd1080";
+
+        var iframeElement = document.getElementById("iframe"); 
+        iframeElement.src = url;
+        //iframeElement.contentWindow.location.reload();
+
+        var player;
+        function onYouTubePlayerAPIReady() {
+            player = new YT.Player('iframe', {
+                events: {
+                    'onStateChange': ShowMe
+                }
+            }); 
+        }
+
+        var tag = document.createElement('script');
+        tag.src = "http://www.youtube.com/player_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            function ShowMe() {
+
+                var sStatus;
+                sStatus = player.getPlayerState();
+
+                if (sStatus == -1) alert("Video has not started.");
+                else if (sStatus == 0) {  
+                    document.getElementById("video").style.display = "none";
+                }
+                else if (sStatus == 1) { } //Video is playing
+                else if (sStatus == 2) {}  //Video is paused
+                else if (sStatus == 3) { } //video is buffering 
+                else if (sStatus == 5) { } //Video is cued.
+        }
+
+        //Récuperer juste l'ID de la vidéo
+        function youtube_parser(url){
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+            var match = url.match(regExp);
+            return (match&&match[7].length==11)? match[7] : false;
+        }
+
+        //TEST
+        
+        
+    </script>
+</body>
+</html>
