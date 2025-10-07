@@ -51,7 +51,7 @@
         }, "4000");
 
 
-        var videoId = youtube_parser("https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=YxfGiPPq1ME&list=PLkgZisYIMkOk-IqfgEMctlxSQnMbxizD_&index=2");
+        /*var videoId = youtube_parser("https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=YxfGiPPq1ME&list=PLkgZisYIMkOk-IqfgEMctlxSQnMbxizD_&index=2");
 
         var url = "https://www.youtube.com/embed/"+ videoId +"?&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&mute=0&vq=hd1080";
 
@@ -90,10 +90,10 @@
 
         //Récuperer juste l'ID de la vidéo
         function youtube_parser(url){
-            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-            var match = url.match(regExp);
+            // var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/ //;
+            /*var match = url.match(regExp);
             return (match&&match[7].length==11)? match[7] : false;
-        }
+        }*/
 
         //TEST
         
